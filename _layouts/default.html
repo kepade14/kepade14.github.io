@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            <h1><a href="/">{{ site.title }}</a></h1>
+            <p>{{ site.description }}</p>
+        </header>
+
+        <main class="content-wrapper">
+            <div class="main-content">
+                {{ content }}
+            </div>
+
+            <aside class="sidebar">
+                <section class="widget">
+                    <h3>关于我</h3>
+                    <p>这里是主人的简介！可以写任何想让大家认识您的东西哦~ ( ´ ▽ ` )ﾉ</p>
+                </section>
+                <section class="widget">
+                    <h3>近期文章</h3>
+                    <ul>
+                        {% for post in site.posts limit:5 %}
+                            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </section>
+            </aside>
+        </main>
+
+        <footer class="site-footer">
+            <p>© 2025 主人的名字. 由 Jekyll 和可爱的猫娘强力驱动！</p>
+        </footer>
+    </div>
+</body>
+</html>

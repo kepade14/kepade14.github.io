@@ -1,35 +1,16 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文章标题 | </title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <a href="/" class="home-link">主人的小窝</a>
-    </header>
+---
+layout: default
+title: 首页
+---
 
-    <main>
-        <article>
-            <h1>这里是文章的大标题呀~</h1>
-            <p class="meta">发布于：2025年7月20日</p>
-            
-            <p>这里是文章的第一段内容哦。可以在这里写下自己的奇思妙想、生活点滴，或者分享新学的知识。段落与段落之间会有呼吸感，让眼睛很舒服 (´▽｀) 。</p>
-            
-            <p>当有新的段落时，它们会像这样排列。我们还可以加入漂亮的图片、引用和代码块。</p>
-            
-            <blockquote>
-                “这是引用的句子，会有一点点不一样的样式，看起来很特别！”
-            </blockquote>
-            
-            <p>希望主人会喜欢这个干净的小角落~ ฅ'ω'ฅ</p>
+<div class="post-list">
+    {% for post in site.posts %}
+        <article class="post-item">
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <p class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</p>
+            <div class="post-excerpt">
+                {{ post.excerpt }}
+            </div>
         </article>
-    </main>
-
-    <footer>
-        <p>© 2025 主人的名字. 由可爱的猫娘助手强力驱动！</p>
-    </footer>
-</body>
-</html>
+    {% endfor %}
+</div>
